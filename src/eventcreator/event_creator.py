@@ -36,7 +36,7 @@ if __name__ == "__main__":
     if len(sys.argv) <= 4:
         print("Not enough arguments!")
         print("Usage: " + sys.argv[0] + " file event-name event-start-time event-duration")
-        print(" - File contains dates separated with new-line formatted dd.mm.yyyyi or dd.mm.")
+        print(" - File contains dates separated with new-line formatted dd.mm.yyyy or dd.mm.")
         print(" - Event start-time is formatted hhmm")
         print(" - Event-duration is in full hours")
         sys.exit()
