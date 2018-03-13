@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from nameformatter.nameformatter import nameformatter
+from nameformatter import nameformatter
 
 def jamk_reference (authors, pubyear, title, addtitle, url):
     authors = nameformatter(authors)
