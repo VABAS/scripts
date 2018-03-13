@@ -11,8 +11,12 @@ def nameformatter (names):
         arr.append(name[len(name) - 1][0].upper() + name[len(name) - 1][1:].lower() + ", " + name[0][0].upper())
 
     arr.sort()
-    ret = "., ".join(arr[:len(arr) - 1])
-    ret += ". & " + arr[len(arr) - 1] + "."
+    ret = ""
+    if len(arr) > 1:
+        ret = "., ".join(arr[:len(arr) - 1])
+        ret += ". & " + arr[len(arr) - 1]
+    else:
+        ret = arr[0]
     return ret
 
 if __name__ == "__main__":
