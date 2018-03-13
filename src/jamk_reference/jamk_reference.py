@@ -2,15 +2,25 @@
 
 from nameformatter import nameformatter
 
-def jamk_reference (authors, pubyear, title, addtitle, url):
-    authors = nameformatter(authors)
+def jamk_ref_struct (authors, pubyear, title, addtitle, url):
+    data = {
+        "authors":nameformatter(authors),
+        "pubyear":"N.d.",
+        "title":title,
+        "addtitle":addtitle,
+        "url":url
+    }
     if pubyear > 0:
-        pubyear = str(pubyear)
-    else:
-        pubyear = "N.d"
-    ret = authors + ". " + pubyear + ". " + title + ". "
-    if addtitle != "":
-        ret += addtitle + ". "
+        data["pubyear"] = str(pubyear)
+    return data
+
+
+def jamk_reference (authors, pubyear, title, addtitle, url):
+#    authors = nameformatter(authors)
+    data = jamk_ref_struct(authors, pubyear, title, addtitle, url)
+    ret = data["authors"] + ". " + data["pubyear"] + ". " + data["title"] + ". "
+    if data["addtitle"] != "":
+        ret += data["addtitle"] + ". "
     ret += url
     return ret
 
