@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 from sys import argv
 
+def _from_string (names_string):
+    return nameformatter(names_string.split(", "))
+
 def nameformatter (names):
-    names = names.replace(",","").split(" ")
     arr = []
-    for i in range(len(names)):
-        if i % 2 == 0:
-            arr.append(names[i + 1][0].upper() + names[i + 1][1:].lower() + ", " + names[i][0].upper())
+    for name in names:
+        name = name.split(" ")
+        arr.append(name[len(name) - 1][0].upper() + name[len(name) - 1][1:].lower() + ", " + name[0][0].upper())
 
     arr.sort()
     ret = "., ".join(arr[:len(arr) - 1])
@@ -15,5 +17,5 @@ def nameformatter (names):
 
 if __name__ == "__main__":
     argv.pop(0)
-    print(nameformatter(' '.join(argv)))
+    print(_from_string(" ".join(argv)))
 
